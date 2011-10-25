@@ -9,9 +9,9 @@ module.exports = (robot) ->
     msg.http('http://travis-ci.org/#{project}.json')
       .get() (err, res, body) ->
         response = JSON.parse(body)
-        if response.last_build_status == "0"
+        if response.last_build_status == 0
           msg.send "Build status for #{project}: Passing"
-        else if response.last_build_status == "1"
+        else if response.last_build_status == 1
           msg.send "Build status for #{project}: Failing"
         else
           msg.send "Build status for #{project}: Unknown"
