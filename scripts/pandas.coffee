@@ -1,6 +1,6 @@
 # Display a random "panda" image
 #
-# pands - Returns a random panda image
+# pandas - Returns a random panda image
 #
 #
 pandas = [

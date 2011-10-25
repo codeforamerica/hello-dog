@@ -1,4 +1,4 @@
-# Display a random " badger" image
+# Display a random "badger" image
 #
 # badgers - Returns a random badger image
 #
