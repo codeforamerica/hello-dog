@@ -4,6 +4,14 @@
 #
 
 module.exports = (robot) ->
+  robot.respond /friday me/i, (msg) ->
+    msg.send "http://www.youtube.com/watch?v=kfVsfOSbJY0"
+    msg.send "Partying. Partying. YEAH!"
   robot.respond /it's friday/i, (msg) ->
     msg.send "http://www.youtube.com/watch?v=kfVsfOSbJY0"
     msg.send "Looking forward to the weekend!"
+  robot.respond /(what day is|what is today)/i, (msg) ->
+    date = new Date()
+    if date.getDate() == 2
+      msg.send "http://www.youtube.com/watch?v=kfVsfOSbJY0"
+      msg.send "It's Friday!"
