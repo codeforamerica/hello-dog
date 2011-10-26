@@ -4,10 +4,12 @@
 "google.coffee",
 "haters.coffee",
 "keep-alive.coffee",
+"remind.coffee",
 "rubygems.coffee",
 "shipit.coffee",
 "speak.coffee",
 "stocks.coffee",
+"sudo.coffee",
 "travis.coffee",
 "tweet.coffee"
 ]
