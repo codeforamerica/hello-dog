@@ -14,7 +14,9 @@ matt = [
  "I never wanted to be little spoon so bad (re:Javier Barden)",
  "That's the good thing about having a beard, you can get beer on it.",
  "Why am I the voice of reason, here?!?",
- "I don't want to freak you guys out but I got like 68 twitter followers today. That's like a commuter flight"
+ "I don't want to freak you guys out but I got like 68 twitter followers today. That's like a commuter flight",
+ "You can't force those, that's like bad parenting",
+ "I hate horses"
 ]
 
 module.exports = (robot) ->
