@@ -1,6 +1,6 @@
 # The Magic Eight ball
 #
-# eightball me <query> - Ask the magic eight ball a question
+# eightball <query> - Ask the magic eight ball a question
 #
 
 ball = [
@@ -27,7 +27,7 @@ ball = [
 ]
 
 module.exports = (robot) ->
-  robot.respond /(eightball|8ball)( me)? (.*)/i, (msg) ->
+  robot.respond /(eightball|8ball)(.*)/i, (msg) ->
     msg.send msg.random ball
 
 
