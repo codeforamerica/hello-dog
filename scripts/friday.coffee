@@ -12,6 +12,6 @@ module.exports = (robot) ->
     msg.send "Looking forward to the weekend!"
   robot.respond /(what day is|what is today)/i, (msg) ->
     date = new Date()
-    if date.getDate() == 2
+    if date.getDay() == 2
       msg.send "http://www.youtube.com/watch?v=kfVsfOSbJY0"
       msg.send "It's Friday!"
