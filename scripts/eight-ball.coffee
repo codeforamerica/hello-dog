@@ -1,5 +1,7 @@
 # The Magic Eight ball
 #
+# eightball me <query> - Ask the magic eight ball a question
+#
 
 ball = [
   "It is certain",
