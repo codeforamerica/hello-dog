@@ -1,6 +1,6 @@
 # Hello, yes this is dog
 #
-# pandas - Returns a random panda image
+# dog - Hello, yes this is doge
 #
 #
 module.exports = (robot) ->
