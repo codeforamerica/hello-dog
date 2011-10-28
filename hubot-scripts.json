@@ -10,5 +10,6 @@
 "speak.coffee",
 "stocks.coffee",
 "travis.coffee",
-"tweet.coffee"
-]
+"tweet.coffee",
+"vanity.coffee",
+"weather.coffee"]
