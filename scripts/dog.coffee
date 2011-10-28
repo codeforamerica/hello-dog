@@ -1,6 +1,6 @@
 # Hello, yes this is dog
 #
-# dog - Hello, yes this is doge
+# hello - Hello, yes this is dog
 #
 #
 module.exports = (robot) ->
