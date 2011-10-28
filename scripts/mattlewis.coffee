@@ -21,7 +21,8 @@ matt = [
  "let me show you why i'm so awesome",
  "excuse me I have to put this banana in my pants",
  "there is a banana in my pants",
- "it's like putting an ant hill in a building"
+ "it's like putting an ant hill in a building",
+ "it's not spam if it's coming out of my mouth"
 ]
 
 module.exports = (robot) ->
