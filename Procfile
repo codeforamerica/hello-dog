@@ -1,1 +1,1 @@
-app: bin/hubot -a campfire -n HelloDog
+app: bin/hubot -a campfire -n Dog
