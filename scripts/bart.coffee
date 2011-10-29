@@ -16,8 +16,10 @@ module.exports = (robot) ->
         minutes = current_etd.getElementsByTagName("estimate").toArray().map (estimate) ->
           estimate.getElementsByTagName("minutes")[0].textContent
         station+": "+minutes.join(", ")
+
+      station_name = body.getElementsByTagName("name")[0].textContent
       
-      msg.send stations.join("\n")
+      msg.send "Upcoming trains for "+station_name+":\n\n"+stations.join("\n")
 
 
 
