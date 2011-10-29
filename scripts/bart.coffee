@@ -8,13 +8,18 @@ module.exports = (robot) ->
     query msg, (body, err) ->
       return msg.send err if err
 
-      etd = body.getElementsByTagName('etd')[0];
-      return msg.send 'No Etd -> no platform.' if not etd or not etd.getAttribute
+      etd = body.getElementsByTagName('etd');
 
-      strings = []
-      strings.push "#{etd.getAttribute('destination')}"
+      stations = etd.toArray().map (current_etd) ->
+        console.log("mapping "+current_etd.textContent);
+        station = current_etd.getElementsByTagName("destination")[0].textContent
+        minutes = current_etd.getElementsByTagName("estimate").toArray().map (estimate) ->
+          estimate.getElementsByTagName("minutes")[0].textContent
+        station+": "+minutes.join(", ")
+      
+      msg.send stations.join("\n")
 
-      msg.send strings.join "\n"
+
 
   getDom = (xml) ->
     body = JsDom.jsdom(xml)
