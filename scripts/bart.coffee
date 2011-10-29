@@ -12,7 +12,6 @@ module.exports = (robot) ->
       etd = body.getElementsByTagName('etd');
 
       stations = etd.toArray().map (current_etd) ->
-        console.log("mapping "+current_etd.textContent);
         station = current_etd.getElementsByTagName("destination")[0].textContent
         minutes = current_etd.getElementsByTagName("estimate").toArray().map (estimate) ->
           estimate.getElementsByTagName("minutes")[0].textContent
