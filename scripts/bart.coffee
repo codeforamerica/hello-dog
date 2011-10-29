@@ -6,7 +6,8 @@ JsDom = require 'jsdom'
 module.exports = (robot) ->
   robot.respond /bart me\s*(\w*)/i, (msg) ->
     query msg, (body, err) ->
-      return msg.send err if err
+      if error = body.getElementsByTagName('error')[0]
+        return msg.send "Error: "+error.getElementsByTagName("details")[0].textContent
 
       etd = body.getElementsByTagName('etd');
 
