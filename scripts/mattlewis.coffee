@@ -23,7 +23,9 @@ matt = [
  "there is a banana in my pants",
  "it's like putting an ant hill in a building",
  "it's not spam if it's coming out of my mouth",
- "Just fling the spent fuel rods into space - thats how you can deal with nuclear waste"
+ "Just fling the spent fuel rods into space - thats how you can deal with nuclear waste",
+ "Fine, I'll learn vim - NOT! I blow people's minds just using google docs",
+ "We [Americans] used to be taller before selective immigration of shorter people"
 ]
 
 module.exports = (robot) ->
