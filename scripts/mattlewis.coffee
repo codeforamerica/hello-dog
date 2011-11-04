@@ -25,7 +25,8 @@ matt = [
  "it's not spam if it's coming out of my mouth",
  "Just fling the spent fuel rods into space - thats how you can deal with nuclear waste",
  "Fine, I'll learn vim - NOT! I blow people's minds just using google docs",
- "We [Americans] used to be taller before selective immigration of shorter people"
+ "We [Americans] used to be taller before selective immigration of shorter people",
+ "ML: I think I'm just going to drink until I can't feel feelings anymore." "MK: You should be an attorney."
 ]
 
 module.exports = (robot) ->
