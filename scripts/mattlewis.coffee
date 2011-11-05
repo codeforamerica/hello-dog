@@ -26,7 +26,8 @@ matt = [
  "Just fling the spent fuel rods into space - thats how you can deal with nuclear waste",
  "Fine, I'll learn vim - NOT! I blow people's minds just using google docs",
  "We [Americans] used to be taller before selective immigration of shorter people",
- "ML: I think I'm just going to drink until I can't feel feelings anymore." "MK: You should be an attorney."
+ "ML: I think I'm just going to drink until I can't feel feelings anymore." "MK: You should be an attorney.",
+ "I love that in San Francisco people will get upset if you go as Steve Jobs for Halloween, but no one would care if you rubbed shit all over yourself and went as Poop Jesus."
 ]
 
 module.exports = (robot) ->
