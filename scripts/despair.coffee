@@ -17,5 +17,5 @@ searchString = RegExp "\\b(#{searchString})\\b", "i"
 module.exports = (robot) ->
   robot.hear searchString, (msg) ->
     url = "http://demotivators.despair.com/#{msg.match[1]}demotivator.jpg"
-    text = "#{msg.match[1].toUpperCase}: #{url}"
+    text = "#{msg.match[1].toUpperCase()}: #{despair[msg.match[1].toLowerCase()]} #{url}"
     msg.send text
