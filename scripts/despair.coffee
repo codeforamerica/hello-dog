@@ -19,5 +19,3 @@ module.exports = (robot) ->
     url = "http://demotivators.despair.com/#{msg.match[1]}demotivator.jpg"
     text = "#{msg.match[1].toUpperCase}: #{url}"
     msg.send text
-
-
