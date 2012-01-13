@@ -25,6 +25,7 @@ despair = {
   winners: "Because nothing says \"you're a loser\" more than owning a motivational poster about being a winner.",
   vision: "How can the future be so hard to predict when all of my worst fears keep coming true?",
   wisdom: "Sometimes the only difference between a budding genius and a blooming idiot is where they choose to take a stand."
+  winners: "Because nothing says \"you're a loser\" more than owning a motivational poster about being a winner."
 }
 
 search = for word, phrase of despair
