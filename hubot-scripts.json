@@ -7,6 +7,7 @@
 "google.coffee",
 "haters.coffee",
 "keep-alive.coffee",
+"likeaboss.coffee",
 "meme_generator.coffee",
 "octocat.coffee",
 "rubygems.coffee",
@@ -16,5 +17,5 @@
 "tell.coffee",
 "travis.coffee",
 "tweet.coffee",
-"likeaboss.coffee"
+"yoda-quotes.coffee"
 ]
