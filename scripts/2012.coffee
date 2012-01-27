@@ -1,7 +1,7 @@
 # Things fellows say!
 #
 
-2012 = [
+q = [
 "It's like fate smacking you across the butt cheeks. -- sheeba",
 "I've got .99999999 problems but floating point ain't 1! -- ruthie",
 “I just put her name into the Google -- nick”,
@@ -13,7 +13,7 @@
 
 module.exports = (robot) ->
   robot.hear /(\s|^)(team|fellow|2012)/i, (msg) ->
-    quote = msg.random matt
+    quote = msg.random q
     msg.send "#{quote}"
 
 
