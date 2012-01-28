@@ -3,7 +3,6 @@
 "ackbar.coffee",
 "adult.coffee",
 "auto-stache.coffee",
-"chuck-norris.coffee",
 "google.coffee",
 "haters.coffee",
 "keep-alive.coffee",
@@ -16,6 +15,5 @@
 "stocks.coffee",
 "tell.coffee",
 "travis.coffee",
-"tweet.coffee",
-"yoda-quotes.coffee"
+"tweet.coffee"
 ]
