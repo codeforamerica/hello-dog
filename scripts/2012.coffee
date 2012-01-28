@@ -8,7 +8,9 @@ q = [
 "You know Stalin and the five year plan? Amateur. -- nick",
 "So when are you gonna meet her mom? Can we at least dwell on the fun part of this?! -- prashant",
 "This is not a momentum moment! -- nick",
-"You need to leave an emotional taste of Nick in her mouth! -- prashant"
+"You need to leave an emotional taste of Nick in her mouth! -- prashant",
+"I can't say that aloud. That would be an HR violation. -- abhi",
+"I've known cold and heartless people and... like, they're in my family."
 ]
 
 module.exports = (robot) ->
