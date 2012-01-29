@@ -32,7 +32,6 @@ matt = [
 
 module.exports = (robot) ->
   robot.hear /(\s|^)(matt lewis)/i, (msg) ->
-	console.log 'heard'
 	quote = msg.random matt
     msg.send "#{quote} -Matt Lewis"
 

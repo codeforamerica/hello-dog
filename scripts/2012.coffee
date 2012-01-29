@@ -1,7 +1,6 @@
 # Things fellows say!
 #
 
-console.log "2012 loaded"
 q = [
   "It's like fate smacking you across the butt cheeks. -- sheeba",
   "I've got .99999999 problems but floating point ain't 1! -- ruthie",
@@ -13,8 +12,6 @@ q = [
   "I can't say that aloud. That would be an HR violation. -- abhi",
   "I've known cold and heartless people and... like, they're in my family."
 ]
-console.log "q loaded"
-console.log q
 
 module.exports = (robot) ->
   robot.hear /(\s|^)(team)/i, (msg) ->
