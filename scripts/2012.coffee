@@ -10,8 +10,7 @@ q = [
   "This is not a momentum moment! -- nick",
   "You need to leave an emotional taste of Nick in her mouth! -- prashant",
   "I can't say that aloud. That would be an HR violation. -- abhi",
-  "I've known cold and heartless people and... like, they're in my family.",
-  "2012 Fellows"
+  "I've known cold and heartless people and... like, they're in my family."
 ]
 
 module.exports = (robot) ->
