@@ -32,7 +32,7 @@ matt = [
 
 module.exports = (robot) ->
   robot.hear /(\s|^)(matt lewis)/i, (msg) ->
-	quote = msg.random matt
+    quote = msg.random matt
     msg.send "#{quote} -Matt Lewis"
 
 
