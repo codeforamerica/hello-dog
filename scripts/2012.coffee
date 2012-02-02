@@ -10,7 +10,9 @@ q = [
   "This is not a momentum moment! -- nick",
   "You need to leave an emotional taste of Nick in her mouth! -- prashant",
   "I can't say that aloud. That would be an HR violation. -- abhi",
-  "I've known cold and heartless people and... like, they're in my family. -- nick"
+  "I've known cold and heartless people and... like, they're in my family. -- nick",
+  "I think there is a lot of money to be made in Macon. -- zach",
+  "I would rather live here - in Macon - than Canada. -- nick"
 ]
 
 module.exports = (robot) ->
@@ -18,5 +20,9 @@ module.exports = (robot) ->
     console.log msg
     quote = msg.random q
     msg.send "#{quote}"
+  robot.respond /(quote me)/i, (msg) ->
+	console.log msg
+	quote = msg.random q
+	msg.send "#{quote}"
 
 
