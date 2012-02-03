@@ -20,9 +20,5 @@ module.exports = (robot) ->
     console.log msg
     quote = msg.random q
     msg.send "#{quote}"
-  robot.respond /(quote me)/i, (msg) ->
-	console.log msg
-	quote = msg.random q
-	msg.send "#{quote}"
 
 
