@@ -14,6 +14,8 @@ q = [
   "I think there is a lot of money to be made in Macon. -- zach",
   "I would rather live here - in Macon - than Canada. -- nick"
   "I've got Klavika." -- zach
+  "It's not a view if you're falling." -- prashant
+  "It's not stealing if you ask." -- prashant
 ]
 
 module.exports = (robot) ->
