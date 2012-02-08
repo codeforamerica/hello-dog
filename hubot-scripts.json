@@ -16,5 +16,6 @@
 "stocks.coffee",
 "tell.coffee",
 "travis.coffee",
+"tell.coffee",
 "tweet.coffee"
 ]
