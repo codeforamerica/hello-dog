@@ -18,7 +18,7 @@ module.exports = (robot) ->
         station+": "+minutes.join(", ")
 
       station_name = body.getElementsByTagName("name")[0].textContent
-      
+
       msg.send "Upcoming trains for "+station_name+":\n\n"+stations.join("\n")
 
 
@@ -29,7 +29,7 @@ module.exports = (robot) ->
 
   query = (msg, cb) ->
     location = msg.match[1]
-    req = msg.http('http://api.bart.gov/api/etd.aspx?cmd=etd&orig=mont&key=MW9S-E7SL-26DU-VV8V')
+    req = msg.http('http://api.bart.gov/api/etd.aspx?cmd=etd&orig=civc&key=MW9S-E7SL-26DU-VV8V')
     req.query(orig: location) unless location.length == 0
     req.get() (err, res, body) ->
       try
