@@ -21,7 +21,8 @@ q = [
   "Abhi, you wear more cardigans than Mr. Rogers! -- liz",
   "liz: I just thought of the blog post I'm going to write in my alternate persona. abhi: That's like 'shit English PhD's say'!",
   "We should take you to the Mutter Museum [of medical curiosities] and lock you up! -- liz, to abhi",
-  "Fiiiiiirebuuuugggg...I looove yoouuuuu -- tamara"
+  "Fiiiiiirebuuuugggg...I looove yoouuuuu -- tamara",
+  "This is a cult, not a family! -- maxogden"
 ]
 
 module.exports = (robot) ->
