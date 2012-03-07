@@ -2,7 +2,7 @@
 #
 
 q = [
-  "It's like fate smacking you across the butt cheeks. -- sheeba",
+  "It's like fate smacking you across the butt cheeks. -- sheba",
   "I've got .99999999 problems but floating point ain't 1! -- ruthie",
   "CfA Peanut Gallery: So did you look her [love interest] up yet? Nick: I just put her name into the Google",
   "You know Stalin and the five year plan? Amateur. -- nick, on dating",
@@ -22,7 +22,9 @@ q = [
   "liz: I just thought of the blog post I'm going to write in my alternate persona. abhi: That's like 'shit English PhD's say'!",
   "We should take you to the Mutter Museum [of medical curiosities] and lock you up! -- liz, to abhi",
   "Fiiiiiirebuuuugggg...I looove yoouuuuu -- tamara",
-  "This is a cult, not a family! -- maxogden"
+  "This is a cult, not a family! -- maxogden",
+  "My ex-boyfriend used to say duh-jango, and he knew more than you! -- sheba, to alex y",
+  "You shouldn't be anyone other than who you are! -- sheba, to alex p"
 ]
 
 module.exports = (robot) ->
