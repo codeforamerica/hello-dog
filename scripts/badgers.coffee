@@ -12,7 +12,5 @@ badgers = [
   "Honey badger just takes what it wants."
 ]
 module.exports = (robot) ->
-  robot.hear /(badger|badgers)/i, (msg) ->
-    console.log msg
-    quote = msg.random q
-    msg.send "#{quote}"
+  robot.respond /badgers/i, (msg) ->
+      msg.send msg.random badgers
