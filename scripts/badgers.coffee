@@ -13,6 +13,6 @@ badgers = [
 ]
 module.exports = (robot) ->
   robot.hear /(badger|badgers)/i, (msg) ->
-      console.log msg
-          quote = msg.random q
-              msg.send "#{quote}"
+    console.log msg
+    quote = msg.random q
+    msg.send "#{quote}"
