@@ -25,7 +25,8 @@ q = [
   "This is a cult, not a family! -- maxogden",
   "My ex-boyfriend used to say duh-jango, and he knew more than you! -- sheba, to alex y",
   "You shouldn't be anyone other than who you are! -- sheba, to alex p",
-  "Isn't excessive altruism a sign of Parkinson's? -- nick"
+  "Isn't excessive altruism a sign of Parkinson's? -- nick",
+  "I don't think enough people travel via extradition. -- nick"
 ]
 
 module.exports = (robot) ->
