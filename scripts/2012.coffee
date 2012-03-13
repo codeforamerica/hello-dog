@@ -24,7 +24,8 @@ q = [
   "Fiiiiiirebuuuugggg...I looove yoouuuuu -- tamara",
   "This is a cult, not a family! -- maxogden",
   "My ex-boyfriend used to say duh-jango, and he knew more than you! -- sheba, to alex y",
-  "You shouldn't be anyone other than who you are! -- sheba, to alex p"
+  "You shouldn't be anyone other than who you are! -- sheba, to alex p",
+  "Isn't excessive altruism a sign of Parkinson's? -- nick"
 ]
 
 module.exports = (robot) ->
