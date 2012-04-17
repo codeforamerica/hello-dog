@@ -12,6 +12,7 @@ despair = {
   consistency: "It's only a virtue if you're not a screwup.",
   failure: "When your best just isn't good enough.",
   fear: "Until you have the courage to lose sight of the shore, you will not know the terror of being forever lost at sea.",
+  government: "If you think the problems we create are bad, just wait until you see our solutions.",
   innovation: "If it can make your job easier, it can probably make it irrelevant.",
   persistence: "It's over, man. Let her go.",
   power: "Power corrupts. Absolute power corrupts absolutely. But it rocks absolutely, too.",
