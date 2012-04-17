@@ -26,7 +26,8 @@ q = [
   "My ex-boyfriend used to say duh-jango, and he knew more than you! -- sheba, to alex y",
   "You shouldn't be anyone other than who you are! -- sheba, to alex p",
   "Isn't excessive altruism a sign of Parkinson's? -- nick",
-  "I don't think enough people travel via extradition. -- nick"
+  "I don't think enough people travel via extradition. -- nick",
+  "This div is wrapping. Wrapping like a gangster. -- michelle, on bootstrap grid"
 ]
 
 module.exports = (robot) ->
