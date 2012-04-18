@@ -27,7 +27,8 @@ q = [
   "You shouldn't be anyone other than who you are! -- sheba, to alex p",
   "Isn't excessive altruism a sign of Parkinson's? -- nick",
   "I don't think enough people travel via extradition. -- nick",
-  "This div is wrapping. Wrapping like a gangster. -- michelle, on bootstrap grid"
+  "This div is wrapping. Wrapping like a gangster. -- michelle, on bootstrap grid",
+  "Your mom is a box model. -- ruthie, on css" 
 ]
 
 module.exports = (robot) ->
