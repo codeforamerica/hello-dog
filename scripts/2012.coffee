@@ -29,7 +29,8 @@ q = [
   "I don't think enough people travel via extradition. -- nick",
   "This div is wrapping. Wrapping like a gangster. -- michelle, on bootstrap grid",
   "Your mom is a box model. -- ruthie, on css",
-  "It's, like, totally going viral on google docs! -- Hannah"
+  "It's, like, totally going viral on google docs! -- Hannah",
+  "I said 'bum you out', not 'boner killer'! -- nick, to sheba"
 ]
 
 module.exports = (robot) ->
