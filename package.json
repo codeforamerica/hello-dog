@@ -20,11 +20,13 @@
   },
 
   "dependencies": {
-    "hubot": "2.3.4",
+    "hubot": "2.4.6",
     "hubot-scripts": ">=2.2.2",
     "optparse": "1.0.3",
     "hubot-irc": ">= 0.0.1",
-    "jsdom": "==0.3.4"
+    "jsdom": "==0.3.4",
+    "gitio": ">=1.0.1",
+    "xml2js": ">=0.2.3"
   }
 }
 
