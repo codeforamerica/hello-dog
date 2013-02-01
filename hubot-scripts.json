@@ -10,7 +10,7 @@
 "heroku-status.coffee",
 "keep-alive.coffee",
 "likeaboss.coffee",
-"meme.coffee",
+"meme_generator.coffee",
 "octocat.coffee",
 "rubygems.coffee",
 "shipit.coffee",
