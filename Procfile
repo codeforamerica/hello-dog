@@ -1,1 +1,1 @@
-app: bin/hubot -a irc -n cfa_dog
+app: bin/hubot -a campfire
