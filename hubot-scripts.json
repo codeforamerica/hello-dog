@@ -1,3 +1,6 @@
+// Add scripts here from https://github.com/github/hubot-scripts/tree/master/src/scripts
+// DO NOT add scripts in the local scripts/ directory!
+
 [
 "ascii.coffee",
 "ackbar.coffee",
