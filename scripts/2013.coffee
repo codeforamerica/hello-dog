@@ -2,7 +2,7 @@
 #
 
 q = [
-   "develop in the service of design, which is a pretentious way of saying I do front-end. -Marcin"
+   "\"I develop in the service of design, which is a pretentious way of saying I do front-end.\" -Marcin"
 ]
 
 module.exports = (robot) ->
