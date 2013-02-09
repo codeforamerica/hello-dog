@@ -4,7 +4,9 @@
 q = [
    '"I develop in the service of design, which is a pretentious way of saying I do front-end." -Marcin',
    '"A yolodex is a list of people that you\'d call up if you wanted to hang out and be really irresponsible." -CJ',
-   '"WE THE SHEEPLE" -Dave'
+   '"WE THE SHEEPLE" -Dave',
+   '"Vine is generally a great medium for shitshows." -Alan',
+   '"I don\'t really have worse clothes." -Marcin, departing for the Louisville PD ride-along'
 ]
 
 module.exports = (robot) ->
