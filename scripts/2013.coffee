@@ -11,7 +11,7 @@ q = [
 ]
 
 module.exports = (robot) ->
-  robot.hear /(2013 fellows|CfA 2013)/i, (msg) ->
+  robot.hear /2013/i, (msg) ->
     console.log msg
     quote = msg.random q
     msg.send "#{quote}"
