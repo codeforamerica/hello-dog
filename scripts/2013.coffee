@@ -6,21 +6,24 @@ module.exports = (robot) ->
     worksheet: 1
 
   callback = (err, cells) ->
-    rows = cells['cells']
+    try
+      rows = cells['cells']
 
-    # Populate array with all the quotes as strings
-    quotes = for i, val of rows
-      name = val['1']['value']
-      quote = val['2']['value']
-      '"' + quote + '" -' + name
+      # Populate array with all the quotes as strings
+      quotes = for i, val of rows
+        try
+          name = val['1']['value']
+          quote = val['2']['value']
+          "\"#{quote}\" -#{name}"
 
-    # Remove column headings
-    quotes = quotes.slice 2, quotes.length
+      # Remove 2 rows with, column headings
+      quotes = quotes[2..]
 
-    # Bind hubot callback
-    robot.hear(/2013/i, (msg) ->
-      quote = msg.random(quotes);
-      msg.send(quote);
-    )
+      # Bind hubot callback
+      robot.hear /2013/i, (msg) ->
+        quote = msg.random quotes
+        msg.send quote
+    catch error
+      console.log "Error loading 2013 quotes: ", err
 
   GoogleSpreadsheets.cells(opts, callback)
