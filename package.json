@@ -26,7 +26,8 @@
     "hubot-irc": ">= 0.0.1",
     "jsdom": "==0.3.4",
     "gitio": ">=1.0.1",
-    "xml2js": ">=0.2.3"
+    "xml2js": ">=0.2.3",
+    "google-spreadsheets": "https://github.com/samcday/node-google-spreadsheets/tarball/master"
   }
 }
 
