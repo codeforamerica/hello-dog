@@ -15,7 +15,7 @@ module.exports = (robot) ->
       '"' + quote + '" -' + name
 
     # Remove column headings
-    quotes = quotes.slice 1, quotes.length
+    quotes = quotes.slice 2, quotes.length
 
     # Bind hubot callback
     robot.hear(/2013/i, (msg) ->
