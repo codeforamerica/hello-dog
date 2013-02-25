@@ -10,7 +10,7 @@ wat_pics = [
 ]
 
 module.exports = (robot) ->
-  robot.hear "wat", (msg) ->
+  robot.hear /(^|\s)wat($|\s)/i, (msg) ->
     console.log msg
     wat_pic = msg.random wat_pics
     msg.send "#{wat_pic}"
