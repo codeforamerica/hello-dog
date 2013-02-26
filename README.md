@@ -43,6 +43,7 @@ repo.
 [hubot-scripts]: https://github.com/github/hubot-scripts
 
 ## Deployment
+
 Hello-dog is hosted on Heroku
 
 If you run into any problems, checkout Heroku's [docs][heroku-node-docs].
