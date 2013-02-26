@@ -1,1 +1,1 @@
-web: bin/hubot -a campfire -n "$HUBOT_CAMPFIRE_NICK"
+web: bin/hubot -a irc -n cfa_dog
