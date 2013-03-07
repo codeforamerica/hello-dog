@@ -1,1 +1,1 @@
-web: bin/hubot -a irc -n cfa_dog
+web: bin/hubot -a "$HUBOT_ADAPTER" -n "$HUBOT_NICK"
