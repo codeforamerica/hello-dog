@@ -13,6 +13,7 @@
 "likeaboss.coffee",
 "meme_generator.coffee",
 "octocat.coffee",
+"redis-brain.coffee",
 "rubygems.coffee",
 "shipit.coffee",
 "speak.coffee",
