@@ -27,6 +27,8 @@
     "jsdom": "==0.5.1",
     "gitio": ">=1.0.1",
     "xml2js": ">=0.2.6",
-    "google-spreadsheets": "https://github.com/samcday/node-google-spreadsheets/tarball/58583b5"
+    "google-spreadsheets": "https://github.com/samcday/node-google-spreadsheets/tarball/58583b5",
+    "querystring": ">=0.2.0",
+    "url": ">=0.7.9"
   }
 }
