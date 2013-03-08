@@ -8,11 +8,20 @@
 ENDPOINT = "http://cfa-api.herokuapp.com/v0/fellows"
 
 module.exports = (robot) ->
-  robot.respond /decide who( within)?( .*)? (should|will) (.*)/i, (msg) ->
-    query = {}
-    query.team = msg.match[2] if msg.match[1] == " within"
+  robot.respond /decide who (within)?\s?(team)?\s?(.*)?\s?(should|will) (.*)/i, (msg) ->
+    query     = {}
+    hasScope  = msg.match[1] == "within"
+    parameter = msg.match[2]
+    value     = msg.match[3]
+    verb      = msg.match[4]
+    action    = msg.match[5]
+
+    if hasScope
+      query[parameter] = value
+
     handler = (fellows) ->
-      msg.send "#{ msg.random fellows } #{ msg.match[3] } #{ msg.match[4] }"
+      msg.send "#{ msg.random fellows } #{ verb } #{ action }"
+
     getFellows(msg, query, handler)
 
 getFellows = (msg, query, handler) ->
