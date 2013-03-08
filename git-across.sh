@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ "run" != "$1" ]; then
-  exec ssh -i "$IDENTITY_FILE" -o "StringHostKeyChecking no" "$@"
+  exec ssh -i "$IDENTITY_FILE" -o "StrictHostKeyChecking no" "$@"
 fi
 
 echo "Deploying from $GITHUB_URL to $HEROKU_GIT_URL"
