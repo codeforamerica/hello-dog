@@ -15,19 +15,18 @@
   },
 
   "engines": {
-  "node": "0.8.14",
-  "npm": "1.1.x"
+    "node": "0.8.14",
+    "npm": "1.1.x"
   },
 
   "dependencies": {
-    "hubot": "2.4.6",
-    "hubot-scripts": ">=2.2.2",
-    "optparse": "1.0.3",
-    "hubot-irc": ">= 0.0.1",
-    "jsdom": "==0.3.4",
+    "hubot": "2.4.7",
+    "hubot-scripts": ">=2.4.1",
+    "optparse": "1.0.4",
+    "hubot-irc": ">= 0.1.11",
+    "jsdom": "==0.5.1",
     "gitio": ">=1.0.1",
-    "xml2js": ">=0.2.3",
+    "xml2js": ">=0.2.6",
     "google-spreadsheets": "https://github.com/samcday/node-google-spreadsheets/tarball/58583b5"
   }
 }
-
