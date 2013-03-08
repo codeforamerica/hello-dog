@@ -38,8 +38,13 @@ module.exports = (robot) ->
       payload = JSON.parse req.body.payload
 
       if payload.commits.length > 0
-        robot.emit "commit", {}
+
+        robot.emit "commit", {
+          user: {}
+        }
+
         robot.send user, "Got #{payload.commits.length} new commits from #{payload.commits[0].author.name} on #{payload.repository.name}"
+
         for commit in payload.commits
           do (commit) ->
             gitio commit.url, (err, data) ->
