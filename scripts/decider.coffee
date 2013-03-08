@@ -5,37 +5,22 @@
 # Commands:
 # hubot decide "<task description>" - Randomly picks a user.
 
-fellows = [
-  "Alison Jones",
-  "Andrew Hyder",
-  "Ariel Kennan",
-  "Lou Huang",
-  "Ryan Closner",
-  "Lindsay Ballant",
-  "Marcin Wichary",
-  "Laura Meixell",
-  "Shaunak Kashyap",
-  "Ezra Spier",
-  "CJ Bryan",
-  "Doneliza Joaquin",
-  "Sheila Dugan",
-  "Richa Agarwal",
-  "Cris Cristina",
-  "Jacob Solomon",
-  "Marc K. Hébert",
-  "Andy Hull",
-  "Rebecca Ackerman",
-  "Moncef Belyamani",
-  "Sophia Parafina",
-  "Anselm Bradford",
-  "Tamara Manik-Perlman",
-  "Dave Guarino",
-  "Reed Duecy Gibbs",
-  "Alan Williams",
-  "Dan Avery",
-  "Katie Lewis"
-]
+ENDPOINT = "http://cfa-api.herokuapp.com/v0/fellows"
 
 module.exports = (robot) ->
-  robot.respond /decide who should (.*)/i, (msg) ->
-    msg.reply("#{ msg.random fellows } will #{ msg.match[1] }")
+  robot.respond /decide who( within)?( .*)? (should|will) (.*)/i, (msg) ->
+    query = {}
+    query.team = msg.match[2] if msg.match[1] == " within"
+    handler = (fellows) ->
+      msg.send "#{ msg.random fellows } #{ msg.match[3] } #{ msg.match[4] }"
+    getFellows(msg, query, handler)
+
+getFellows = (msg, query, handler) ->
+  msg.http(ENDPOINT)
+    .query(query)
+    .get() (err, res, body) ->
+      json = JSON.parse(body)
+      fellowName = (fellow) ->
+        fellow["fellow"]["name"]
+      fellows = (fellowName fellow for fellow in json)
+      handler(fellows)
