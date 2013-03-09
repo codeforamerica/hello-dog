@@ -1,5 +1,5 @@
 # Description:
-#   Keep track of ping pong wins and losses
+#   Keeps track of ping pong wins and losses
 #
 # Dependencies:
 #   "underscore" : ""
@@ -17,27 +17,33 @@
 _ = require("underscore")
 
 module.exports = (robot) ->
-  robot.brain.data.pingPongGames =
+  robot.brain.data.ping_pong_games ||=
     won:  {}
     lost: {}
 
   pingPong =
     winners: ->
-      _.keys(robot.brain.data.pingPongGames.won)
+      data = robot.brain.data.ping_pong_games
+      _.keys(data.won)
     losers: ->
-      _.keys(robot.brain.data.pingPongGames.lost)
+      data = robot.brain.data.ping_pong_games
+      _.keys(data.lost)
     players: ->
       _.chain([@winners(), @losers()]).flatten().uniq().value()
     incrementLost: (player) ->
-      robot.brain.data.pingPongGames.lost[player] = 0 if (pingPong.getLost(player) <= 0)
-      robot.brain.data.pingPongGames.lost[player] += 1
+      data = robot.brain.data.ping_pong_games
+      data.lost[player] = 0 unless data.lost[player]
+      data.lost[player] += 1
     incrementWon: (player) ->
-      robot.brain.data.pingPongGames.won[player] = 0 if (pingPong.getWon(player) <= 0)
-      robot.brain.data.pingPongGames.won[player] += 1
+      data = robot.brain.data.ping_pong_games
+      data.won[player] = 0 unless data.won[player]
+      data.won[player] += 1
     getWon: (player) ->
-      robot.brain.data.pingPongGames.won[player] || 0
+      data = robot.brain.data.ping_pong_games
+      data.won[player] || 0
     getLost: (player) ->
-      robot.brain.data.pingPongGames.lost[player] || 0
+      data = robot.brain.data.ping_pong_games
+      data.lost[player] || 0
     getRecord: (player) ->
       "W: #{ pingPong.getWon(player) } L: #{ pingPong.getLost(player) }"
     getLeaderboard: () ->
