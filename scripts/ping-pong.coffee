@@ -58,7 +58,6 @@ module.exports = (robot) ->
     pingPong.incrementWon(winner)
     pingPong.incrementLost(loser)
 
-    msg.send "Result:"
     displayRecord(msg, winner, loser)
 
 
@@ -69,9 +68,7 @@ module.exports = (robot) ->
     pingPong.incrementWon(winner)
     pingPong.incrementLost(loser)
 
-    msg.send "Result:"
     displayRecord(msg, winner, loser)
 
   robot.respond /leaderboard/i, (msg) ->
-    msg.send "Ping Pong Leaderboard:"
     msg.send pingPong.getLeaderboard()
