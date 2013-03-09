@@ -46,7 +46,6 @@ module.exports = (robot) ->
     loser  = msg.message.user.name
     winner = msg.match[1]
 
-    msg.send loser
     pingPong.incrementWon(winner)
     pingPong.incrementLost(loser)
 
