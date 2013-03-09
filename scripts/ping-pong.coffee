@@ -32,21 +32,22 @@ module.exports = (robot) ->
   displayRecord = (msg, winner, loser) ->
     msg.send "#{ winner } - #{ pingPong.getRecord(winner) } #{ loser } - #{ pingPong.getRecord(loser) }"
 
-  robot.respond /I beat (.*) at ping pong/, (msg) ->
+  robot.respond /I beat (.*) at ping pong/i, (msg) ->
     winner = msg.message.user.name
     loser  = msg.match[1]
 
-    pingPong.won(winner)
-    pingPong.lost(loser)
+    pingPong.incrementWon(winner)
+    pingPong.incrementLost(loser)
 
     displayRecord(msg, winner, loser)
 
 
-  robot.respond /I lost to (.*) at ping pong/, (msg) ->
+  robot.respond /I lost to (.*) at ping pong/i, (msg) ->
     loser  = msg.message.user.name
     winner = msg.match[1]
 
-    pingPong.won(winner)
-    pingPong.lost(loser)
+    msg.send loser
+    pingPong.incrementWon(winner)
+    pingPong.incrementLost(loser)
 
     displayRecord(msg, winner, loser)
