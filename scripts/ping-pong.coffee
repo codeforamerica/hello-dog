@@ -3,6 +3,7 @@
 #
 # Dependencies:
 #   "underscore" : ""
+#   "node-skill" ; ""
 #
 # Configuration:
 #   None
@@ -16,80 +17,28 @@
 # Author:
 #   rclosner
 
-_ = require("underscore")
+elo = require("node-skill").elo
+_   = require("underscore")
 
 module.exports = (robot) ->
+
   robot.brain.data.ping_pong ||=
     players: {}
     matches: []
 
-  robot.respond /i beat (.*) (.*) to (.*) at ping pong/i, (msg) ->
-    winner_name  = msg.message.user.name
-    loser_name   = msg.match[1]
-    score_a      = msg.match[2]
-    score_b      = msg.match[3]
+  robot.respond /i (beat|lost to) (.*) (.*) to (.*) at ping pong/i, (msg) ->
+    player     = msg.message.user.name
+    result     = msg.match[1]
+    competitor = msg.match[2]
+    score_a    = msg.match[3]
+    score_b    = msg.match[4]
 
-    if score_a > score_b
-      winner_score = score_a
-      loser_score  = score_b
-    else
-      winner_score = score_b
-      loser_score  = score_a
-
-    match = Match.create
-      winner_name: winner_name
-      loser_name:  loser_name
-      winner_score: winner_score
-      loser_score: loser_score
-
+    match = Match.create( player, competitor, result, score_a, score_b )
     msg.send match.result()
-
-  robot.respond /i lost to (.*) (.*) to (.*) at ping pong/i, (msg) ->
-    loser_name   = msg.message.user.name
-    winner_name  = msg.match[1]
-    score_a      = msg.match[2]
-    score_b      = msg.match[3]
-
-    if score_a > score_b
-      winner_score = score_a
-      loser_score  = score_b
-    else
-      winner_score = score_b
-      loser_score  = score_a
-
-    match = Match.create
-      winner_name: winner_name
-      loser_name:  loser_name
-      winner_score: winner_score
-      loser_score: loser_score
-
-    msg.send match.result()
-
 
   robot.respond /ping pong leaderboard\s?(by)?\s?(.*)?/i, (msg) ->
     attribute = msg.match[2] || "wins"
     msg.send Leaderboard.by(attribute)
-
-  ##################################################
-  ## EloRatingCalculator - Calculates Player Ratings
-  ##################################################
-
-
-  EloRatingCalculator = (old_w_rating, old_l_rating, w_score, l_score) ->
-
-    KFACTOR = 16
-
-    calculate_expected_score = (rating_a, rating_b) ->
-      1 / ( 1 + Math.pow 10, ( rating_b - rating_a ) / 400 )
-
-    calculate_rating = (rating, score, expected_score) ->
-      rating + (KFACTOR * ( score - expected_score))
-
-    expected_w_score = calculate_expected_score(old_l_rating, old_w_rating)
-    expected_l_score = calculate_expected_score(old_w_rating, old_l_rating)
-
-    @winner_rating = Math.round calculate_rating(old_w_rating, w_score, expected_w_score)
-    @loser_rating  = Math.round calculate_rating(old_l_rating, l_score, expected_l_score)
 
   ##################################################
   ## Models
@@ -177,14 +126,14 @@ module.exports = (robot) ->
       @loser.increment_losses()
 
     update_player_ratings: () ->
-      w_rating   = @winner.get "rating"
-      l_rating   = @loser.get "rating"
-      w_score    = @get "winner_score"
-      l_score    = @get "loser_score"
-      calculator = new EloRatingCalculator(w_rating, l_rating, w_score, l_score)
+      winner_rating = new elo.Rating( @winner.get("rating") )
+      loser_rating  = new elo.Rating( @loser.get("rating")  )
 
-      @winner.set "rating", calculator.winner_rating
-      @loser.set  "rating", calculator.loser_rating
+      winner_change = winner_rating.calculateChange(loser_rating, 1)
+      loser_change  = loser_rating.calculateChange(winner_rating, 0)
+
+      @winner.set "rating", Math.floor winner_rating.value - winner_change
+      @loser.set  "rating", Math.floor loser_rating.value  - loser_change
 
     get: (name) ->
       @attributes[name]
@@ -202,7 +151,27 @@ module.exports = (robot) ->
       "#{ winner_record } \n #{ loser_record }"
 
 
-  Match.create = (attrs) ->
+  Match.create = (player, competitor, result, score_a, score_b) ->
+    if result == "beat"
+      winner_name = player
+      loser_name  = competitor
+    else if result == "lost to"
+      winner_name = competitor
+      loser_name  = player
+
+    if score_a > score_b
+      winner_score = score_a
+      loser_score  = score_b
+    else
+      winner_score = score_b
+      loser_score  = score_a
+
+    attrs =
+      winner_name:  winner_name
+      loser_name:   loser_name
+      winner_score: winner_score
+      loser_score:  loser_score
+
     (new @(attrs)).save()
 
 

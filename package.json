@@ -26,6 +26,7 @@
     "hubot-irc":           ">= 0.1.11",
     "hubot-scripts":       ">=2.4.1",
     "jsdom":               "==0.5.1",
+    "node-skill":          ">=0.1.0",
     "optparse":            "1.0.4",
     "querystring":         ">=0.2.0",
     "redis":               ">=0.8.2",
