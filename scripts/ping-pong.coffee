@@ -148,7 +148,7 @@ module.exports = (robot) ->
     result: () ->
       winner_record = LeaderboardRow.render(@winner)
       loser_record  = LeaderboardRow.render(@loser)
-      "#{ winner_record } \n #{ loser_record }"
+      "#{ winner_record } \n#{ loser_record }"
 
 
   Match.create = (player, competitor, result, score_a, score_b) ->
