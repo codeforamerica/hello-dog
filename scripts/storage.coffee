@@ -20,4 +20,3 @@ module.exports = (robot) ->
       response += "\n"
 
     msg.send response
-
