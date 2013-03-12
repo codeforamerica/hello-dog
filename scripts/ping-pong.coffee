@@ -132,8 +132,8 @@ module.exports = (robot) ->
       winner_change = winner_rating.calculateChange(loser_rating, 1)
       loser_change  = loser_rating.calculateChange(winner_rating, 0)
 
-      @winner.set "rating", Math.floor winner_rating.value - winner_change
-      @loser.set  "rating", Math.floor loser_rating.value  - loser_change
+      @winner.set "rating", Math.floor winner_rating.value + winner_change
+      @loser.set  "rating", Math.floor loser_rating.value  + loser_change
 
     get: (name) ->
       @attributes[name]
