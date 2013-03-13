@@ -13,7 +13,7 @@
 #   hubot I beat <user> <score_1> to <score_2> at ping pong- Adds 1 win to user and 1 loss to competitor; also updagtes player rankings for both current user and competitor.
 #   hubot ping pong leaderboard - Displays player leaderboard (default sort is by "wins").
 #   hubot ping pong leaderboard by <attribute> - Displays player leaderboard sorted by attributes (acceptable values: "wins", "losses", "rating").
-#   hubot last <number> matches - Displays last n matches
+#   hubot last <number> ping pong matches - Displays last n matches
 #
 # Author:
 #   rclosner
@@ -88,7 +88,11 @@ module.exports = (robot) ->
 
     setAttributes: (attrs) ->
       attrs = {} unless attrs
-      @attributes = _(@defaults).chain().extend(attrs).clone().value()
+
+      defaults = _.clone(@defaults)
+      attrs    = _.clone(attrs)
+
+      @attributes = _(defaults).chain().extend(attrs).value()
 
     _calculate_rating_change: (competitor, result) ->
       rating = new elo.Rating( @get("rating") )
