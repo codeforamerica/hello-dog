@@ -72,6 +72,10 @@ module.exports = (robot) ->
       losses += 1
       @set("losses", losses)
 
+    update_rating: (competitor, result) ->
+      rating = @get "rating"
+      @set "rating", Math.floor rating + @_calculate_rating_change(competitor, result)
+
     save: () ->
       robot.brain.data.ping_pong.players[@name] = @attributes
       @
@@ -85,6 +89,12 @@ module.exports = (robot) ->
     setAttributes: (attrs) ->
       attrs = {} unless attrs
       @attributes = _(@defaults).chain().extend(attrs).clone().value()
+
+    _calculate_rating_change: (competitor, result) ->
+      rating = new elo.Rating( @get("rating") )
+      competitor_rating  = new elo.Rating( competitor.get("rating")  )
+      rating.calculateChange(competitor_rating, result)
+
 
   Player.find = (name) ->
     attrs = robot.brain.data.ping_pong.players[name]
@@ -133,14 +143,8 @@ module.exports = (robot) ->
       @loser.increment_losses()
 
     update_player_ratings: () ->
-      winner_rating = new elo.Rating( @winner.get("rating") )
-      loser_rating  = new elo.Rating( @loser.get("rating")  )
-
-      winner_change = winner_rating.calculateChange(loser_rating, 1)
-      loser_change  = loser_rating.calculateChange(winner_rating, 0)
-
-      @winner.set "rating", Math.floor winner_rating.value + winner_change
-      @loser.set  "rating", Math.floor loser_rating.value  + loser_change
+      @winner.update_rating(@loser, 1)
+      @loser.update_rating(@winner, 0)
 
     get: (name) ->
       @attributes[name]
