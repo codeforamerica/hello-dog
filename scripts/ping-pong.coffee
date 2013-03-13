@@ -185,7 +185,7 @@ module.exports = (robot) ->
       winner_name = competitor
       loser_name  = player
 
-    if score_a > score_b
+    if parseInt(score_a) > parseInt(score_b)
       winner_score = score_a
       loser_score  = score_b
     else
