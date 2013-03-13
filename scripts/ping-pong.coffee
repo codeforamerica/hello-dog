@@ -27,12 +27,15 @@ module.exports = (robot) ->
     players: {}
     matches: []
 
-  robot.respond /i (beat|lost to) (.*) (.*) to (.*) at ping pong/i, (msg) ->
-    player     = msg.message.user.name
-    result     = msg.match[1]
-    competitor = msg.match[2]
-    score_a    = msg.match[3]
-    score_b    = msg.match[4]
+  robot.respond /(.*) (beat|lost to) (.*) (.*) to (.*) at ping pong/i, (msg) ->
+    player     = msg.match[1]
+    result     = msg.match[2]
+    competitor = msg.match[3]
+    score_a    = msg.match[4]
+    score_b    = msg.match[5]
+
+    if player == "i"
+      player = msg.message.user.name
 
     match = Match.create( player, competitor, result, score_a, score_b )
     msg.send match.result()
