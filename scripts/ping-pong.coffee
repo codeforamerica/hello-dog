@@ -13,6 +13,7 @@
 #   hubot I beat <user> <score_1> to <score_2> at ping pong- Adds 1 win to user and 1 loss to competitor; also updagtes player rankings for both current user and competitor.
 #   hubot ping pong leaderboard - Displays player leaderboard (default sort is by "wins").
 #   hubot ping pong leaderboard by <attribute> - Displays player leaderboard sorted by attributes (acceptable values: "wins", "losses", "rating").
+#   hubot last <number> matches - Displays last n matches
 #
 # Author:
 #   rclosner
@@ -38,7 +39,11 @@ module.exports = (robot) ->
 
   robot.respond /ping pong leaderboard\s?(by)?\s?(.*)?/i, (msg) ->
     attribute = msg.match[2] || "wins"
-    msg.send Leaderboard.by(attribute)
+    msg.send PlayerRecords.by(attribute)
+
+  robot.respond /last (.*) ping pong matches/i, (msg) ->
+    num = msg.match[1]
+    msg.send MatchRecords.last(num)
 
   ##################################################
   ## Models
@@ -93,9 +98,11 @@ module.exports = (robot) ->
     Player.find(name) || Player.create(name, attrs)
 
   Player.all = ->
-    _(robot.brain.data.ping_pong.players).chain().pairs().map(
-      (obj) -> new Player obj[0], obj[1]
-    ).value()
+    _(robot.brain.data.ping_pong.players)
+      .chain()
+      .pairs()
+      .map( (obj) -> new Player obj[0], obj[1] )
+      .value()
 
   class Match
     constructor: (attrs) ->
@@ -146,10 +153,18 @@ module.exports = (robot) ->
       @attributes = _(@defaults).chain().extend(attrs).clone().value()
 
     result: () ->
-      winner_record = LeaderboardRow.render(@winner)
-      loser_record  = LeaderboardRow.render(@loser)
+      winner_record = PlayerRecord.render(@winner)
+      loser_record  = PlayerRecord.render(@loser)
       "#{ winner_record } \n#{ loser_record }"
 
+
+  Match.limit = (num) ->
+    _(robot.brain.data.ping_pong.matches)
+      .chain()
+      .values()
+      .last(num)
+      .map( (obj) -> new Match obj )
+      .value()
 
   Match.create = (player, competitor, result, score_a, score_b) ->
     if result == "beat"
@@ -180,23 +195,26 @@ module.exports = (robot) ->
   ##################################################
 
 
-  class Leaderboard
-    constructor: () ->
-      @players = Player.all()
+  class PlayerRecords
+    constructor: (players) ->
+      @players = players
 
     sort: (attribute) ->
-      _(@players)
+      @players = _(@players)
         .chain()
         .sortBy( (player) -> player.get(attribute) )
-        .map( (player) -> LeaderboardRow.render(player) )
         .reverse()
         .value()
-        .join("\n")
+      @
 
-  Leaderboard.by = (attr) ->
-    (new @).sort(attr)
+    render: () ->
+      _(@players).map((player) -> PlayerRecord.render(player)).join("\n")
 
-  class LeaderboardRow
+  PlayerRecords.by = (attr) ->
+    players = Player.all()
+    (new @(players)).sort(attr).render()
+
+  class PlayerRecord
     constructor: (player) ->
       @player = player
 
@@ -214,5 +232,37 @@ module.exports = (robot) ->
     _rating: () ->
       "Rating: #{ @player.get('rating') }"
 
-  LeaderboardRow.render = (player) ->
+  PlayerRecord.render = (player) ->
     (new @ player).render()
+
+  class MatchRecords
+    constructor: (matches) ->
+      @matches = matches
+
+    render: () ->
+      _(@matches)
+        .map( (match) -> MatchRecord.render(match) )
+        .join("\n")
+
+  MatchRecords.last = (num) ->
+    matches = Match.limit(num)
+    (new @(matches)).render()
+
+  class MatchRecord
+    constructor: (match) ->
+      @match = match
+
+    render: () ->
+      "- #{ @_winner() } #{ @_loser() } #{ @_score() }"
+
+    _winner: () ->
+      "Winner: #{ @match.get('winner_name') }"
+
+    _loser: () ->
+      "Loser: #{ @match.get('loser_name') }"
+
+    _score: () ->
+      "Score: #{ @match.get('winner_score') } - #{ @match.get('loser_score') }"
+
+  MatchRecord.render = (match) ->
+    (new @(match)).render()
