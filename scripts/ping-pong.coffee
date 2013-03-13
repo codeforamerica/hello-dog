@@ -34,7 +34,7 @@ module.exports = (robot) ->
     score_a    = msg.match[4]
     score_b    = msg.match[5]
 
-    if player == "i"
+    if player.toUpperCase().trim() == "I"
       player = msg.message.user.name
 
     match = Match.create( player, competitor, result, score_a, score_b )
