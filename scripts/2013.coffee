@@ -1,29 +1,29 @@
-module.exports = (robot) ->
-  GoogleSpreadsheets = require("google-spreadsheets")
+#module.exports = (robot) ->
+  #GoogleSpreadsheets = require("google-spreadsheets")
 
-  opts =
-    key: process.env.HUBOT_2013_QUOTE_KEY,
-    worksheet: 1
+  #opts =
+    #key: process.env.HUBOT_2013_QUOTE_KEY,
+    #worksheet: 1
 
-  callback = (err, cells) ->
-    try
-      rows = cells['cells']
+  #callback = (err, cells) ->
+    #try
+      #rows = cells['cells']
 
-      # Populate array with all the quotes as strings
-      quotes = for i, val of rows
-        try
-          name = val['1']['value']
-          quote = val['2']['value']
-          "\"#{quote}\" -#{name}"
+      ## Populate array with all the quotes as strings
+      #quotes = for i, val of rows
+        #try
+          #name = val['1']['value']
+          #quote = val['2']['value']
+          #"\"#{quote}\" -#{name}"
 
-      # Remove 2 rows with, column headings
-      quotes = quotes[2..]
+      ## Remove 2 rows with, column headings
+      #quotes = quotes[2..]
 
-      # Bind hubot callback
-      robot.hear /2013/i, (msg) ->
-        quote = msg.random quotes
-        msg.send quote
-    catch error
-      console.log "Error loading 2013 quotes: ", err
+      ## Bind hubot callback
+      #robot.hear /2013/i, (msg) ->
+        #quote = msg.random quotes
+        #msg.send quote
+    #catch error
+      #console.log "Error loading 2013 quotes: ", err
 
-  GoogleSpreadsheets.cells(opts, callback)
+  #GoogleSpreadsheets.cells(opts, callback)
