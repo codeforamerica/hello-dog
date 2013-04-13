@@ -5,7 +5,7 @@
 #   google-spreadsheets
 #
 # Configuration:
-#   HUBOT_BILLBOARD_ENDPOINT
+#   HUBOT_2013_QUOTE_KEY: the Google Docs key (from the URL) for the spreadsheet containing quotes.
 #
 # Commands:
 #   2013 - print a random 2013 quote
