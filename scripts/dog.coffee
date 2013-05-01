@@ -5,4 +5,4 @@
 #
 module.exports = (robot) ->
   robot.respond /hello/i, (msg) ->
-    msg.send "http://imgace.com/wp-content/uploads/2011/10/hello-yes-this-is-dog.png"
+    msg.send "https://i.chzbgr.com/maxW500/6375276544/hF28629FD/"
