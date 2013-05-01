@@ -15,12 +15,13 @@
   },
 
   "engines": {
-    "node": "0.8.14",
-    "npm": "1.1.x"
+    "node": "0.10.4",
+    "npm": "1.2.x"
   },
 
   "dependencies": {
     "gitio":               ">=1.0.1",
+    "google-spreadsheets": "https://github.com/samcday/node-google-spreadsheets/tarball/58583b5",
     "hubot":               "2.4.7",
     "hubot-irc":           ">= 0.1.11",
     "hubot-scripts":       ">=2.4.1",

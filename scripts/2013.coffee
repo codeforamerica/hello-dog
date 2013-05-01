@@ -1,29 +1,44 @@
-#module.exports = (robot) ->
-  #GoogleSpreadsheets = require("google-spreadsheets")
+# Description:
+#   Prints quotes from 2013 Code for America fellows.
+#
+# Dependencies:
+#   google-spreadsheets
+#
+# Configuration:
+#   HUBOT_2013_QUOTE_KEY: the Google Docs key (from the URL) for the spreadsheet containing quotes.
+#
+# Commands:
+#   2013 - print a random 2013 quote
+#
+# Author:
+#   ahhrrr
 
-  #opts =
-    #key: process.env.HUBOT_2013_QUOTE_KEY,
-    #worksheet: 1
+module.exports = (robot) ->
+  GoogleSpreadsheets = require("google-spreadsheets")
 
-  #callback = (err, cells) ->
-    #try
-      #rows = cells['cells']
+  opts =
+    key: process.env.HUBOT_2013_QUOTE_KEY,
+    worksheet: 1
 
-      ## Populate array with all the quotes as strings
-      #quotes = for i, val of rows
-        #try
-          #name = val['1']['value']
-          #quote = val['2']['value']
-          #"\"#{quote}\" -#{name}"
+  callback = (err, cells) ->
+    try
+      rows = cells['cells']
 
-      ## Remove 2 rows with, column headings
-      #quotes = quotes[2..]
+      # Populate array with all the quotes as strings
+      quotes = for i, val of rows
+        try
+          name = val['1']['value']
+          quote = val['2']['value']
+          "\"#{quote}\" -#{name}"
 
-      ## Bind hubot callback
-      #robot.hear /2013/i, (msg) ->
-        #quote = msg.random quotes
-        #msg.send quote
-    #catch error
-      #console.log "Error loading 2013 quotes: ", err
+      # Remove 2 rows with, column headings
+      quotes = quotes[2..]
 
-  #GoogleSpreadsheets.cells(opts, callback)
+      # Bind hubot callback
+      robot.hear /2013/i, (msg) ->
+        quote = msg.random quotes
+        msg.send quote
+    catch error
+      console.log "Error loading 2013 quotes: ", err
+
+  GoogleSpreadsheets.cells(opts, callback)
