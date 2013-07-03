@@ -22,9 +22,9 @@
   "dependencies": {
     "gitio":               ">=1.0.1",
     "google-spreadsheets": "https://github.com/samcday/node-google-spreadsheets/tarball/58583b5",
-    "hubot":               "2.4.7",
+    "hubot":               "2.5.5",
     "hubot-irc":           ">= 0.1.11",
-    "hubot-scripts":       ">=2.4.1",
+    "hubot-scripts":       ">=2.4.6",
     "jsdom":               "==0.5.1",
     "node-skill":          ">=0.1.0",
     "optparse":            "1.0.4",
